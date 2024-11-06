@@ -2,37 +2,33 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
+/*
 // Login
 Route::get('/', 'LoginController@login')->name('index');
 Route::post('/', 'LoginController@autenticator')->name('index');
-
+*/
 // Fallback
 Route::fallback(function(){
     echo "A página que você que você digitou não existe!";
 }); 
 
-
 // user
 
-Route::get('/user/home', 'LoginController@user_home')->name('user_home');
+Route::get('/usuario/home', function () {
+    return view('usuario.home');
+})->name('usuario_home');
 
 Route::get('/user/history', 'TicketController@history')->name('history');
 
-Route::get('/user/open_ticket','TicketController@open_ticket')->name('open_ticket');
+Route::get('/usarrio/open', function () {
+    return view('usuario.open');
+})->name('open_ticket');
 
 Route::get('/user/list_tickets_open', 'TicketController@list_tickets_open')->name('list_ticket');
-
 
 // admin
 
@@ -78,9 +74,5 @@ Route::get('/admin_interfaces/search_ticket', 'SearchController@get_view_search_
 Route::get('/admin_interfaces/search_active', 'SearchController@get_view_search_active')->name('search_active');
 
 Route::post('/admin_interfaces/search_user', 'SearchController@search_user')->name('search_user');
-
-
-
-
 
 Route::get('/admin/open_ticket','TicketController@open_ticket_admin')->name('open_ticket_admin');

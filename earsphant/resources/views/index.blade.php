@@ -10,7 +10,7 @@
 @section('pages')
     
     <main class="element_flex_dad">
-        <img src="images/logo_index.png" alt="Logo do sistema earsphant com um elefante com as orelhas abertas">
+        <a href="{{ route('index') }}"><img src="images/logo_index.png" alt="Logo do sistema earsphant com um elefante com as orelhas abertas"></a>
 
 
         <!--Formulário de login-->
